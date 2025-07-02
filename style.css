@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* === Sticky Navbar === */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #1c1c1c;
+  z-index: 999;
+  padding: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #00ffc8;
+}
+
+/* === Header === */
+.hero {
+  background-color: #1c1c1c;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+/* === Shared Section Style === */
+section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  margin-top: 40px;
+  z-index: 1;
+  position: relative;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* === About Image === */
+.about-img {
+  display: block;
+  margin: 0 auto 30px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* === Education List === */
+.education ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.education li {
+  background-color: #f0f0f0;
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border-left: 5px solid #1c1c1c;
+  border-radius: 6px;
+}
+
+/* === Work Section === */
+.work p {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+/* === Contact === */
+.contact p {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+/* === Footer === */
+footer {
+  background-color: #1c1c1c;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 60px;
+  font-size: 14px;
+}
