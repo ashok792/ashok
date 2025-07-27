@@ -1,3 +1,17 @@
+:root {
+  --primary: #00ffc8;
+  --secondary: #1c1c1c;
+  --light: #f9f9f9;
+  --dark: #222;
+  --gray: #555;
+  --light-gray: #ccc;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --border-radius: 16px;
+  --transition: all 0.3s ease;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,131 +20,286 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  background-color: var(--light);
+  color: var(--dark);
   line-height: 1.8;
 }
 
-/* === Sticky Navbar === */
+/* ========== Typography ========== */
+h1, h2, h3 {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+/* ========== Layout ========== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+/* ========== Navbar ========== */
 .navbar {
   position: sticky;
   top: 0;
-  background-color: #1c1c1c;
-  z-index: 999;
-  padding: 15px 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background-color: var(--secondary);
+  z-index: 1000;
+  padding: 1rem 0;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  padding: 0.5rem 0;
 }
 
 .navbar ul {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 2rem;
   list-style: none;
 }
 
 .navbar a {
-  color: #ffffff;
+  color: white;
   text-decoration: none;
   font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s;
+  font-size: 1rem;
+  transition: var(--transition);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
 }
 
 .navbar a:hover {
-  color: #00ffc8;
+  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* === Header === */
+/* ========== Hero Section ========== */
 .hero {
-  background-color: #1c1c1c;
-  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 100px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: var(--secondary);
+  color: white;
+  padding: 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(28, 28, 28, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: -1;
 }
 
 .hero h1 {
-  font-size: 48px;
-  font-weight: 600;
+  margin-bottom: 1rem;
+  animation: fadeInDown 1s ease;
 }
 
 .hero p {
-  font-size: 18px;
-  color: #ccc;
-  margin-top: 10px;
+  font-size: 1.25rem;
+  color: var(--light-gray);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  animation: fadeInUp 1s ease 0.3s both;
 }
 
-/* === Shared Section Style === */
-section {
-  padding: 60px 20px;
-  max-width: 900px;
-  margin: auto;
-  background-color: #fff;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
-  border-radius: 16px;
-  margin-top: 40px;
-  z-index: 1;
+/* ========== About Section ========== */
+.about {
+  background-color: white;
   position: relative;
 }
 
-section h2 {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 30px;
-  font-weight: 600;
-  color: #222;
-}
-
-/* === About Image === */
 .about-img {
   display: block;
-  margin: 0 auto 30px;
-  width: 150px;
-  height: 150px;
+  margin: 0 auto 2rem;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
+  border: 5px solid white;
+  outline: 2px solid var(--primary);
 }
 
-/* === Education List === */
+/* ========== Education Section ========== */
+.education {
+  background-color: var(--light);
+}
+
 .education ul {
   list-style: none;
-  padding: 0;
-  margin-top: 20px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .education li {
-  background-color: #f0f0f0;
-  margin-bottom: 10px;
-  padding: 12px 20px;
-  border-left: 5px solid #1c1c1c;
-  border-radius: 6px;
+  background-color: white;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
 }
 
-/* === Work Section === */
-.work p {
+.education li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.education li::before {
+  content: '🎓';
+  margin-right: 1rem;
+}
+
+/* ========== Work Section ========== */
+.work {
+  background-color: white;
+}
+
+.project {
+  background-color: var(--light);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.project ul {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.project li {
+  margin-bottom: 0.75rem;
+}
+
+/* ========== Contact Section ========== */
+.contact {
+  background-color: var(--light);
   text-align: center;
-  font-size: 18px;
-  color: #555;
 }
 
-/* === Contact === */
 .contact p {
-  text-align: center;
-  font-size: 18px;
-  color: #555;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
 }
 
-/* === Footer === */
+.contact a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Footer ========== */
 footer {
-  background-color: #1c1c1c;
+  background-color: var(--secondary);
   color: white;
   text-align: center;
-  padding: 30px 20px;
-  margin-top: 60px;
-  font-size: 14px;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+/* ========== Animations ========== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  .navbar ul {
+    gap: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  section {
+    padding: 3rem 1rem;
+  }
+
+  .about-img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
 }
